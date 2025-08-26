@@ -15,7 +15,7 @@ files_to_link.extend(list_files_in_folders(folders=["img"], pattern=".png"))
 
 files_to_link.extend(list_files_in_folders(folders=["txt", "data"]))
 
-files_to_link.extend(["LICENCE", "CHANGES.md"])
+files_to_link.extend(["LICENSE", "CHANGES.md"])
 
 pack(
     # When we're in the app folder, this is our entrypoint (main) file - the one we'd run if
