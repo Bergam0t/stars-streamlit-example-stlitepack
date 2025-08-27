@@ -7,9 +7,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Redirecting…</title>
   <script>
-    // GitHub Pages always serves the site root as "/"
-    // Redirect immediately to the published site root
-    location.replace('/');
+    const pathname = location.pathname;
+    const segments = pathname.split('/').filter(Boolean);
+
+    // Set your project name if it’s a GitHub project page
+    const projectName = 'my_app';
+
+    const projectRoot =
+      segments[0] === projectName ? `/${projectName}/` : '/';
+
+    location.replace(projectRoot);
   </script>
 </head>
 <body>
