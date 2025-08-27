@@ -7,16 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Redirecting…</title>
   <script>
-    const pathname = location.pathname;
-    const segments = pathname.split('/').filter(Boolean);
+    // Remove everything after the first segment of the app
+    // Assumes your app is contained in a single "folder" level in the URL
+    const segments = location.pathname.split('/').filter(Boolean);
 
-    // Set your project name if it’s a GitHub project page
-    const projectName = 'my_app';
+    // Go to the first segment if it exists, otherwise root
+    const redirectTo = segments.length > 0 ? `/${segments[0]}/` : '/';
 
-    const projectRoot =
-      segments[0] === projectName ? `/${projectName}/` : '/';
-
-    location.replace(projectRoot);
+    location.replace(redirectTo);
   </script>
 </head>
 <body>
